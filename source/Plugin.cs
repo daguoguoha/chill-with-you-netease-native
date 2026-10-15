@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ using UnityEngine.Networking;
 
 namespace ChillNeteasePlaylist
 {
-    [BepInPlugin("local.chill.neteaseplaylist", "网易云歌单", "1.2.0")]
+    [BepInPlugin("local.chill.neteaseplaylist", "网易云歌单", "1.2.1")]
     [BepInProcess("Chill With You.exe")]
     public sealed partial class Plugin : BaseUnityPlugin
     {
@@ -26,6 +26,7 @@ namespace ChillNeteasePlaylist
         AudioSource audio;
         UnityWebRequest request;
         ConfigEntry<float> volume;
+        ConfigEntry<bool> showLauncher;
         ConfigEntry<KeyboardShortcut> shortcut;
         Rect panel = new Rect(170, 70, 1000, 700);
         bool visible = false, busy, ready, logged, qrPolling, paused, playing, destroying, legacyInput = true;
@@ -56,6 +57,7 @@ namespace ChillNeteasePlaylist
             host.Owner = this;
             volume = Config.Bind("Player", "Volume", 0.65f, "网易云音量，0 到 1。");
             shortcut = Config.Bind("Panel", "Shortcut", new KeyboardShortcut(KeyCode.F8), "显示或隐藏歌单面板。");
+            showLauncher = Config.Bind("Panel", "ShowLauncher", true, "是否显示游戏内入口按钮。隐藏后仍可按 F8 打开面板。");
             audio = runtime.AddComponent<AudioSource>();
             audio.playOnAwake = false;
             audio.volume = Mathf.Clamp01(volume.Value);

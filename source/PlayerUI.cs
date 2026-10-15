@@ -129,7 +129,7 @@ namespace ChillNeteasePlaylist
                 GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(scale, scale, 1));
                 if (!visible)
                 {
-                    if (GUI.Button(new Rect(22, Screen.height / scale - 165, 170, 42), "网易云音乐  ·  F8", buttonStyle)) visible = true;
+                    if (showLauncher.Value && GUI.Button(new Rect(22, Screen.height / scale - 165, 170, 42), "网易云音乐  ·  F8", buttonStyle)) visible = true;
                     return;
                 }
                 panel.x = Mathf.Clamp(panel.x, 0, Mathf.Max(0, Screen.width / scale - panel.width));
@@ -313,7 +313,12 @@ namespace ChillNeteasePlaylist
         {
             GUI.Box(new Rect(20, 583, 960, 87), "", cardStyle);
             GUI.Label(new Rect(40, 598, 680, 29), "网易云歌曲已接入游戏原生播放器", bodyText);
-            GUI.Label(new Rect(40, 635, 680, 24), "在游戏播放列表上方的下拉菜单选择网易云歌单。", mutedText);
+            if (GUI.Button(new Rect(40, 631, 230, 30), showLauncher.Value ? "隐藏游戏内入口" : "显示游戏内入口", quietButton))
+            {
+                showLauncher.Value = !showLauncher.Value;
+                Config.Save();
+            }
+            GUI.Label(new Rect(286, 636, 420, 24), "隐藏后仍可按 F8 打开面板", mutedText);
             if (GUI.Button(new Rect(750, 604, 210, 40), "收起并使用原生播放器", primaryButton)) visible = false;
             Label(new Rect(30, 675, 938, 17), status, smallText);
         }

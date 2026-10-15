@@ -1,6 +1,6 @@
 # Chill With You 网易云原生播放器 · 一键部署包
 
-社区适配版 v1.2.0。将网易云歌单接入《Chill with You: Lo-Fi Story》的原生播放列表和底部播放器，保留 F8 账号管理面板。
+社区适配版 v1.2.1。将网易云歌单接入《Chill with You: Lo-Fi Story》的原生播放列表和底部播放器，保留 F8 账号管理面板。
 
 ## 三步开始
 
@@ -16,7 +16,7 @@
 - 安装 / 更新三个插件 DLL；更新前将被替换的旧插件文件备份到游戏目录的 BepInEx/ChillNeteaseNative-backups，保存安装记录。
 - 发现不同的已有加载器、完整 ChillPatcher 或游戏仍在运行时停止，给出处理提示。
 
-**这是联网部署包**，首次需要访问 GitHub 和 NuGet，下载约 12 MB。系统需要 Windows x64、Windows PowerShell 5.1 和 .NET Framework。解压后运行即可，无需提前手动下载依赖或修改系统执行策略。安装目录没有写入权限时，可右键安装入口选择“以管理员身份运行”。下载缓存位于系统临时目录 ChillNeteaseNative-1.2.0-downloads，可重复利用。
+**这是联网部署包**，首次需要访问 GitHub 和 NuGet，下载约 12 MB。系统需要 Windows x64、Windows PowerShell 5.1 和 .NET Framework。解压后运行即可，无需提前手动下载依赖或修改系统执行策略。安装目录没有写入权限时，可右键安装入口选择“以管理员身份运行”。下载缓存位于系统临时目录 ChillNeteaseNative-1.2.1-downloads，可重复利用。
 
 本包不会带上作者的账号、Cookie、存档或音乐文件。每位使用者需用自己的网易云账号登录，曲目是否可播、能否播放完整音频取决于账户原有权限。不要分享运行后生成的 account 文件夹和 Cookie。
 
@@ -43,3 +43,8 @@ source/ 包含适配插件全部 C# 源码，Install.ps1 是安装后端源码�
 网易云桥接复用 [ChillPatcher](https://github.com/BeyondtheApex/ChillPatcher)，底层使用 [go-musicfox](https://github.com/go-musicfox/go-musicfox) 和 [netease-music](https://github.com/go-musicfox/netease-music)；加载框架及运行时补丁依赖 [BepInEx](https://github.com/BepInEx/BepInEx)、[HarmonyX](https://github.com/BepInEx/HarmonyX)，二维码使用 [QRCoder](https://github.com/codebude/QRCoder)。准确版本、来源和许可证见 THIRD_PARTY_NOTICES.md。
 
 本项目为非官方社区插件，与游戏开发商、网易云音乐及上游维护者没有官方合作关系。游戏程序、游戏资源及相关程序集不随包分发。
+
+
+## 隐藏游戏内入口
+
+按 **F8** 打开面板，点击底部 **隐藏游戏内入口**，再收起面板；按 **F8** 可重新打开并恢复显示。两款插件分别记住设置，重启游戏后仍有效。
