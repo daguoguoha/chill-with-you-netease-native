@@ -1,5 +1,5 @@
-# 下载
+# 候选版下载
 
-[下载网易云 v1.2.2 离线一键安装包](https://github.com/daguoguoha/chill-with-you-netease-native/releases/download/v1.2.2/ChillNeteaseNative-1.2.2-OneClick.zip)
+[网易云 v1.3.0-rc.1](https://github.com/daguoguoha/chill-with-you-netease-native/releases/tag/v1.3.0-rc.1)
 
-完整解压并保留 offline-dependencies，退出游戏后运行 ChillNeteaseSetup.exe。安装不需联网，账号、歌单和音乐仍需联网。
+完整解压退出游戏后安装。平台时长入账尚待验证。
